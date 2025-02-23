@@ -49,9 +49,21 @@ print("here we just updated 2 indexes, the 3rd one remains the same")
 print(frame_index_rename)
 
 print("-- restting index -- THIS IS IMPORTANT ----------------- CHECK THE OUTPUT")
-print(" here we have reset_index function which will add an extra index column to the frame")
+print(" here we have reset_index function which will add an extra index column to the existing frame ")
 frame_index_rename.reset_index(inplace=True)
 print(frame_index_rename)
+
+print("-- accessing rows by index using iloc() on the dataframe with default indexing.. same can be done with any dataframe with custom indexing-- ")
+
+print(frame_default_index.iloc [1])
+
+print("--- get datafreame index --")
+print("-- below will return index object")
+print(frame_default_index.index)
+print("-- below will return index values")
+print(frame_default_index.index.values)
+
+
 
 
 
