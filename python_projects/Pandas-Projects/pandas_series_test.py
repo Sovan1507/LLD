@@ -13,17 +13,24 @@ print("Creating series from a list")
 default_indexed_series = pd.Series(l)
 print(default_indexed_series)
 
-#access series
+# access series
 print("Accessing series by index/label 2")
 print(default_indexed_series[2])
 
 print("Default labels of the series is the numeric index/label starting from 0, as shown above")
-print("however we can set our own index/label column which will act as labels as shown below.. the index/label is shown as brown i guess thats because may be the index is a optional args")
+print(
+    "however we can set our own index/label column which will act as labels as shown below.. the index/label is shown as brown i guess thats because may be the index is a optional args")
 
-custom_indexed_series = pd.Series(l, index = ["x", "y", "z"])
+custom_indexed_series = pd.Series(l, index=["x", "y", "z"])
 print(custom_indexed_series)
 
-print("To access the element now we have to access it via the new index/label value instead of the default numeric index/label value")
+print("setting custom index to existing series")
+custom_indexed_on_existing_series = pd.Series(l)
+custom_indexed_on_existing_series.index = ["cust_ind_1", "cust_ind_1", "cust_ind_1"]
+print(custom_indexed_on_existing_series)
+
+print(
+    "To access the element now we have to access it via the new index/label value instead of the default numeric index/label value")
 print(custom_indexed_series['z'])
 
 print("create series from python dict")
@@ -34,8 +41,5 @@ series_from_dict_default_key_index = pd.Series(dict)
 print(series_from_dict_default_key_index)
 
 print("you can select the series items by their index/label names here you cant update the labels")
-select_records_by_label = pd.Series(dict, index = ['b','a'])
+select_records_by_label = pd.Series(dict, index=['b', 'a'])
 print(select_records_by_label)
-
-
-
