@@ -24,9 +24,26 @@ print("-- so adding row is done is using loc()"
       "step-1 get the current length of the frame using frame.len() "
       "step-2 add the new row at the index frame[frame.len()]")
 
-frame[len(frame.index.values)] = ["sovan", 5.8, "Btech", "Blr"]
+frame.loc[len(frame.index)] = ["sovan", 5.8, "Btech", "Blr"]
 print("-- frame after adding a new row")
 print(frame)
+
+print("NOTE ----- Once the column is set as an index, "
+      "then that column wont be counted when you are trying to add a new row to dataframe")
+frame.set_index('Name', inplace=True)
+print("after seeting Name column as index : ")
+print(frame)
+frame.set_index('Height', inplace=True)
+print("after overriding Name with Height column as index , the Name index column will be removed from the frame ")
+print(frame)
+
+print("now lets try to add a row to the frame -- this will pass ----")
+frame.loc[len(frame.index)] = ["b-tech", "blr"]
+print(frame)
+
+print("NOW LETS TRY TO ADD A ROW TO THE FRAME ****** THIS WILL FAIL SO COMMENTED *******")
+# frame.loc[len(frame.index)] = ["titikshya", 5.4, "b-tech", "blr"]
+# print(frame)
 
 print("-- Dropping rows and columns")
 
@@ -74,7 +91,10 @@ print("-- here we are trying to rename multiple columns using mapper so we have 
 d.rename(mapper={'Age': 'Age_Num', 'City': 'Address'}, axis=1, inplace=True)
 print(d)
 
-
 print("-- Rename row label, its also called as index")
-
-
+print("Renaming Index column name is not possible .. lets try that")
+print("--- making City as index --")
+d.set_index("Address", inplace=True)
+print("---- Renaming index column 'City' to 'New_City' -- this not going to have any effect-----")
+d.rename({"Address": "New_Address"}, axis=1, inplace=True)
+print(d)
