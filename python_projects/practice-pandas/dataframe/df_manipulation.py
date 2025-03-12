@@ -1,5 +1,3 @@
-from turtledemo.penrose import start
-
 import pandas as pd
 
 data = {"name": ["a", "b"], "age": [10, 20]}
