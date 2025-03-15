@@ -67,3 +67,5 @@ df.rename({"Name": "new _name", "City": "new _city"}, axis=1, inplace=True)
 print(df)
 df.rename(mapper={"Age": " new_age"}, axis=1, inplace=True)
 print(df)
+
+print("----")
